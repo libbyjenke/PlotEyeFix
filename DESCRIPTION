@@ -1,0 +1,21 @@
+Package: PlotEyeFix
+Type: Package
+Title: Plot a respondents' fixations on your experimental stimulus
+Version: 0.0.0.9000
+Authors@R: 
+    person("Libby", "Jenke", , "ljenke@uh.edu", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-2109-9391"))
+Description: This function takes fixation coordinates and plots them on top of a stimulus image.
+    The fixation points are scaled to fit the image dimensions, 
+    and a color gradient is applied to indicate the order of fixations (from red to blue).
+License: `use_mit_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Depends: 
+    R (>= 2.10)
+LazyData: true

@@ -1,0 +1,92 @@
+---
+title: "Introduction to PlotEyeFix"
+author: Libby Jenke
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introduction}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Purpose
+
+This vignette gives an example of how to use the **PlotEyeFix** R package. This package allows researchers to plot the eye tracked fixations of respondents on a stimulus screen. 
+
+# Installation and Setup
+
+To install the development version from GitHub, use the following command:
+
+```{r install}
+devtools::install_github("libbyjenke/PlotEyeFix")
+```
+
+Once installed, load the package using:
+```{r setup}
+library(PlotEyeFix)
+library(png)
+```
+
+# Basic Usage Example
+
+This example comes from Jenke & Sullivan (forthcoming, *Political Analysis*). We will use the data, **sample_data**, which is in the package.
+
+The data contain eye tracking data for three participants on one stimulus screen. 
+
+```{r loaddata}
+data(sample_data, package="PlotEyeFix")
+head(sample_data)
+```
+
+Let's plot the data using **PlotEyeFix**. To do this, we need to define six parameters: fix_data, image_path, eyetracker_width, eyetracker_height, trial_num, and output_path.
+
+**fix_data**: For the function, we only need data on the respondent number, the location of the fixations, and the trial number. Below, I create a new data frame including only these variables. 
+
+**image_path**: This is the path to the stimulus image, which is also in the package. This image must be as it was shown on the eye tracker screen; its orientation and size compared to the eye tracking screen must be correctly represented. For example, if showing a portrait-oriented image on a landscape-oriented eye tracker, there will be margins on either side of the image that must be incorporated into the stimulus image dimensions. Otherwise, the scaling factor to match the image with the fixations will be incorrect.
+
+**eyetracker_width** and **eyetracker_height**: The width and height of the eye tracker's screen in pixels. This information can be found in your eyetracker's manual or on the manufacturer's website.
+
+**trial_num**: The number of the trial that you are going to plot. This can also be set as a vector if you would like to include more than one trial.
+
+**output_path**: A string specifying the directory and base file name where the plots will be saved. In the code below, I have defined the outpath path to include `{subjID}` and `{trial_num}` as placeholders that will be replaced by the actual subject ID and trial number.
+
+```{r plot_fixations}
+
+# Get only necessary variables 
+fix_data <- sample_data[, c("Respondent.Name","Fixation.X","Fixation.Y","trial_num")]
+
+# And rename variables
+fix_data <- fix_data |>
+  rename(
+    fixX = `Fixation.X`,
+    fixY = `Fixation.Y`,
+    subjID = `Respondent.Name`
+  )
+
+# Define path to stimulus image
+image_path <- readPNG(system.file("data", "stimulus_screen.png", package = "PlotEyeFix"))
+
+# Define width and height of eye tracker
+eyetracker_width = 1920
+eyetracker_height = 1080
+
+# Define trial of interest
+trial_num <- 1
+
+# Define output path
+output_path = file.path(tempdir(),"ET_output/{subjID}_trial_{trial_num}.png")
+
+PlotEyeFix(fix_data, image_path, eyetracker_width, eyetracker_height, trial_num, output_path) 
+
+```
+You should now have a series of plots, each one with a single respondents' data for a single stimulus screen. The plot colors each fixation by its order, such that earlier fixations are red and later fixations are blue.
+
+You can see that Respondent 2's fixations are down and to the right of where they would be expected if the respondent were looking at the stimuli. This is because the calibration step was (purposefully) not done properly, leading to an offset of the respondent's fixations.
+
+
