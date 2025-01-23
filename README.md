@@ -6,7 +6,7 @@
 You can install <b>PlotEyeFix</b> directly from GitHub using the <b>devtools</b> or <b>remotes</b> package. Once you have installed one of these packages, install <b>PlotEyeFix</b> from GitHub using:
 
 ```r
-devtools::install_github("PlotEyeFix")
+devtools::install_github("libbyjenke/PlotEyeFix")
 ```
 
 <h2>Example</h2>
