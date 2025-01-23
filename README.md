@@ -36,7 +36,7 @@ eyetracker_height <- 1080
 trial_num <- 1
 
 # Define output path
-output_path <-file.path(tempdir(),"ET_output/{subjID}_trial_{trial_num}.png")
+output_path <- file.path(tempdir(),"ET_output/{subjID}_trial_{trial_num}.png")
 
 PlotEyeFix(fix_data, image_path, eyetracker_width, eyetracker_height, trial_num, output_path) 
 ```
