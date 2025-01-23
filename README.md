@@ -45,7 +45,7 @@ You should now have a series of plots, each one with a single respondents' data 
 You can see that Respondent 2's fixations are down and to the right of where they would be expected if the respondent were looking at the stimuli. This is because the calibration step was (purposefully) not done properly, leading to an offset of the respondent's fixations.
 
 <h2>Applications</h2>
-For a framework for applications and more on eye tracking in the social sciences, see this paper:
+For a framework for applications and more on using eye tracking in the social sciences, see this paper:
 <br>
 <ul>
 <li>Libby Jenke and Nicolette Sullivan. "Attention and Political Choice: A Foundation for Eye Tracking in Political Science." Forthcoming at <i>Political Analysis</i>. <a href="https://osf.io/preprints/socarxiv/ns48h">Working paper</a></li>
