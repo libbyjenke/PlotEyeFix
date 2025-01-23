@@ -1,6 +1,6 @@
 <h1>PlotEyeFix</h1>
 
-<b>PlotEyeFix</b> is an R package for visualizing eye tracking data. It produces plots of individual respondents' fixations on a stimulus screen, with color (red-blue) indicating the order of the fixations. The package allows users to indicate the number of respondents and number of trials that they want to plot.
+<b>PlotEyeFix</b> is an R package for visualizing eye tracking data. It produces plots of individual respondents' fixations on a stimulus screen, with color (red-blue) indicating the order of the fixations. The package allows users to plot one or more trials.
 
 <h2>Installation</h2>
 You can install <b>PlotEyeFix</b> directly from GitHub using the <b>devtools</b> or <b>remotes</b> package. Once you have installed one of these packages, install <b>PlotEyeFix</b> from GitHub using:
@@ -16,6 +16,7 @@ devtools::install_github("PlotEyeFix")
 library(PlotEyeFix)
 
 # Get data (in the package) ready for analysis
+data(sample_data, package="PlotEyeFix")
 fix_data <- sample_data[, c("Respondent.Name","Fixation.X","Fixation.Y","trial_num")]
 fix_data <- fix_data |>
   rename(
