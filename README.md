@@ -48,5 +48,5 @@ You can see that Respondent 2's fixations are down and to the right of where the
 For a framework for applications and more on eye tracking in the social sciences, see this paper:
 <br>
 <ul>
-<li>Libby Jenke and Nicolette Sullivan. "Attention and Political Choice: A Foundation for Eye Tracking in Political Science." Forthcoming at <i>Political Analysis</i>. <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uecSN6QAAAAJ&sortby=pubdate&citation_for_view=uecSN6QAAAAJ:MXK_kJrjxJIC">Working paper</a></li>
+<li>Libby Jenke and Nicolette Sullivan. "Attention and Political Choice: A Foundation for Eye Tracking in Political Science." Forthcoming at <i>Political Analysis</i>. <a href="https://osf.io/preprints/socarxiv/ns48h">Working paper</a></li>
 </ul>
