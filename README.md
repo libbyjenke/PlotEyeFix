@@ -12,8 +12,11 @@ devtools::install_github("libbyjenke/PlotEyeFix")
 <h2>Example</h2>
 
 ```r
-# Load the PlotEyeFix packages
+# Load the PlotEyeFix package
 library(PlotEyeFix)
+#Load other packages
+library(dplyr)
+library(png)
 
 # Get data (in the package) ready for analysis
 data(sample_data, package="PlotEyeFix")
