@@ -35,7 +35,7 @@ image_path <- readPNG(system.file("data", "stimulus_screen.png", package = "Plot
 eyetracker_width <- 1920
 eyetracker_height <- 1080
 
-# Define trial of interest
+# Define trial(s) of interest
 trial_num <- 1
 
 # Define output path
